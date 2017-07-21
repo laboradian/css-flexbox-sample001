@@ -58,6 +58,12 @@ footer {
   }
 }
 
+.flex0 {
+  > div {
+    @include flex-item-bgc;
+  }
+}
+
 .flex1 {
   display: flex;
   > div {
