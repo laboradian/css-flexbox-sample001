@@ -1,0 +1,949 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <!--  Font Awesome の CDN  -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
+  <link rel="stylesheet" href="css/main.css">
+  <title>CSS Flexible Box Layout Module のサンプルページ001</title>
+</head>
+<body>
+
+  <header>
+    <h1>CSS Flexible Box Layout Module のサンプルページ001</h1>
+  </header>
+
+  <div class="well">
+    <p>内容</p>
+    <ul>
+      <li>flexbox というHTMLの要素があるわけではない。</li>
+      <li>CSSの属性として用意されている。</li>
+    </ul>
+
+    <p>参考</p>
+    <ul>
+      <li><a href="https://drafts.csswg.org/css-flexbox-1/">CSS Flexible Box Layout Module Level 1</a></li>
+      <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout">CSS Flexible Box Layout - CSS | MDN</a></li>
+    </ul>
+
+  </div>
+
+  <div id="root"></div>
+
+  <!-- はじまり -->
+  <div class="panel panel-success">
+    <div class="panel-heading">なにもCSSを書かない場合</div>
+    <div class="panel-body">
+      <div class="flex-html-css">
+        <div>
+          HTML
+          <!-- 以下にHTMLを書く -->
+          <pre><code>&lt;div&gt;
+  &lt;div&gt;いち&lt;/div&gt;
+  &lt;div&gt;にい&lt;/div&gt;
+  &lt;div&gt;さん&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+        </div>
+        <div>
+          CSS
+          <!-- 以下にCSSを書く -->
+          <pre><code>なし
+</code></pre>
+        </div>
+      </div>
+
+      <div class="output">
+        結果
+        <output class="result">
+          <!-- 以下にHTMLを書く -->
+          <div>
+            <div>いち</div>
+            <div>にい</div>
+            <div>さん</div>
+          </div>
+        </output>
+        <!-- 結果に対するコメント -->
+        メモ
+        <ul>
+          <li>divはブロックなので縦に並ぶ。</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <!-- おわり -->
+
+  <h2>displayプロパティ</h2>
+
+  <!-- はじまり -->
+  <div class="panel panel-success">
+    <div class="panel-heading">display: flex とした場合</div>
+    <div class="panel-body">
+      <div class="flex-html-css">
+        <div>
+          HTML
+          <!-- 以下にHTMLを書く -->
+          <pre><code>&lt;div class="flex1"&gt;
+  &lt;div&gt;いち&lt;/div&gt;
+  &lt;div&gt;にい&lt;/div&gt;
+  &lt;div&gt;さん&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+        </div>
+        <div>
+          CSS
+          <!-- 以下にCSSを書く -->
+          <pre><code>.flex1 {
+  display: flex;
+}
+</code></pre>
+        </div>
+      </div>
+
+      <div class="output">
+        結果
+        <output class="result">
+          <!-- 以下にHTMLを書く -->
+          <div class="flex1">
+            <div>いち</div>
+            <div>にい</div>
+            <div>さん</div>
+          </div>
+        </output>
+        <!-- 結果に対するコメント -->
+        メモ
+        <ul>
+          <li>横に並ぶようになる。</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <!-- おわり -->
+
+  <!-- はじまり -->
+  <div class="panel panel-success">
+    <div class="panel-heading">display: inline-flex とした場合</div>
+    <div class="panel-body">
+      <div class="flex-html-css">
+        <div>
+          HTML
+          <!-- 以下にHTMLを書く -->
+          <pre><code>&lt;div class="flex2"&gt;
+  &lt;div&gt;いち&lt;/div&gt;
+  &lt;div&gt;にい&lt;/div&gt;
+  &lt;div&gt;さん&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+        </div>
+        <div>
+          CSS
+          <!-- 以下にCSSを書く -->
+          <pre><code>.flex2 {
+  display: inline-flex;
+}
+</code></pre>
+        </div>
+      </div>
+
+      <div class="output">
+        結果
+        <output class="result">
+          <!-- 以下にHTMLを書く -->
+          <div class="flex2">
+            <div>いち</div>
+            <div>にい</div>
+            <div>さん</div>
+          </div>
+        </output>
+        <!-- 結果に対するコメント -->
+        メモ
+        <ul>
+          <li>inline-flex は、flex コンテナを極小のインラインレベル要素する。</li>
+          <li>なので、この div の前に何か文字があった場合などは、右側に表示される。</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <!-- おわり -->
+
+  <h2>flex-direction プロパティ</h2>
+  <ul>
+    <li>flex-direction プロパティは、flex コンテナ内で flexアイテムをどのように配置するか指定する。</li>
+  </ul>
+
+  <p>参考</p>
+  <ul>
+    <li><a href="https://drafts.csswg.org/css-flexbox-1/#propdef-flex-direction">CSS Flexible Box Layout Module Level 1</a></li>
+    <li><a href="https://developer.mozilla.org/ja/docs/Web/CSS/flex-direction">flex-direction - CSS | MDN</a></li>
+  </ul>
+
+  <!-- はじまり -->
+  <div class="panel panel-success">
+    <div class="panel-heading">flex-direction: row-reverse とした場合</div>
+    <div class="panel-body">
+      <div class="flex-html-css">
+        <div>
+          HTML
+          <!-- 以下にHTMLを書く -->
+          <pre><code>&lt;div class="flex3"&gt;
+  &lt;div&gt;いち&lt;/div&gt;
+  &lt;div&gt;にい&lt;/div&gt;
+  &lt;div&gt;さん&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+        </div>
+        <div>
+          CSS
+          <!-- 以下にCSSを書く -->
+          <pre><code>.flex3 {
+  display: flex;
+  flex-direction: row-reverse;
+}
+</code></pre>
+        </div>
+      </div>
+
+      <div class="output">
+        結果
+        <output class="result">
+          <!-- 以下にHTMLを書く -->
+          <div class="flex3">
+            <div>いち</div>
+            <div>にい</div>
+            <div>さん</div>
+          </div>
+        </output>
+        <!-- 結果に対するコメント -->
+        メモ
+        <ul>
+          <li>水平方向全体が逆になる。</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <!-- おわり -->
+
+  <!-- はじまり -->
+  <div class="panel panel-success">
+    <div class="panel-heading">flex-direction: column とした場合</div>
+    <div class="panel-body">
+      <div class="flex-html-css">
+        <div>
+          HTML
+          <!-- 以下にHTMLを書く -->
+          <pre><code>&lt;div class="flex4"&gt;
+  &lt;div&gt;いち&lt;/div&gt;
+  &lt;div&gt;にい&lt;/div&gt;
+  &lt;div&gt;さん&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+        </div>
+        <div>
+          CSS
+          <!-- 以下にCSSを書く -->
+          <pre><code>.flex4 {
+  display: flex;
+  flex-direction: column;
+}
+</code></pre>
+        </div>
+      </div>
+
+      <div class="output">
+        結果
+        <output class="result">
+          <!-- 以下にHTMLを書く -->
+          <div class="flex4">
+            <div>いち</div>
+            <div>にい</div>
+            <div>さん</div>
+          </div>
+        </output>
+        <!-- 結果に対するコメント -->
+        メモ
+        <ul>
+          <li>上から下への順番になる。</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <!-- おわり -->
+
+  <!-- はじまり -->
+  <div class="panel panel-success">
+    <div class="panel-heading">flex-direction: column-reverse とした場合</div>
+    <div class="panel-body">
+      <div class="flex-html-css">
+        <div>
+          HTML
+          <!-- 以下にHTMLを書く -->
+          <pre><code>&lt;div class="flex5"&gt;
+  &lt;div&gt;いち&lt;/div&gt;
+  &lt;div&gt;にい&lt;/div&gt;
+  &lt;div&gt;さん&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+        </div>
+        <div>
+          CSS
+          <!-- 以下にCSSを書く -->
+          <pre><code>.flex5 {
+  display: flex;
+  flex-direction: column-reverse;
+}
+</code></pre>
+        </div>
+      </div>
+
+      <div class="output">
+        結果
+        <output class="result">
+          <!-- 以下にHTMLを書く -->
+          <div class="flex5">
+            <div>いち</div>
+            <div>にい</div>
+            <div>さん</div>
+          </div>
+        </output>
+        <!-- 結果に対するコメント -->
+        メモ
+        <ul>
+          <li>下から上への順番になる。</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <!-- おわり -->
+
+  <h2>justify-content プロパティ</h2>
+  <ul>
+    <li>flex アイテム間の配置関係をどうするか指定する（水平方向）。</li>
+  </ul>
+
+  <p>参考</p>
+  <ul>
+    <li><a href="https://drafts.csswg.org/css-flexbox-1/#propdef-justify-content">CSS Flexible Box Layout Module Level 1</a></li>
+    <li><a href="https://developer.mozilla.org/ja/docs/Web/CSS/justify-content">justify-content - CSS | MDN</a></li>
+  </ul>
+
+  <!-- はじまり -->
+  <div class="panel panel-success">
+    <div class="panel-heading">justify-content: center とした場合</div>
+    <div class="panel-body">
+      <div class="flex-html-css">
+        <div>
+          HTML
+          <!-- 以下にHTMLを書く -->
+          <pre><code>&lt;div class="flex6"&gt;
+  &lt;div&gt;いち&lt;/div&gt;
+  &lt;div&gt;にい&lt;/div&gt;
+  &lt;div&gt;さん&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+        </div>
+        <div>
+          CSS
+          <!-- 以下にCSSを書く -->
+          <pre><code>.flex6 {
+  display: flex;
+  justify-content: center;
+}
+</code></pre>
+        </div>
+      </div>
+
+      <div class="output">
+        結果
+        <output class="result">
+          <!-- 以下にHTMLを書く -->
+          <div class="flex6">
+            <div>いち</div>
+            <div>にい</div>
+            <div>さん</div>
+          </div>
+        </output>
+        <!-- 結果に対するコメント -->
+        メモ
+        <ul>
+          <li>flex アイテムが中央に集まる。</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <!-- おわり -->
+
+  <!-- はじまり -->
+  <div class="panel panel-success">
+    <div class="panel-heading">justify-content: left とした場合</div>
+    <div class="panel-body">
+      <div class="flex-html-css">
+        <div>
+          HTML
+          <!-- 以下にHTMLを書く -->
+          <pre><code>&lt;div class="flex7"&gt;
+  &lt;div&gt;いち&lt;/div&gt;
+  &lt;div&gt;にい&lt;/div&gt;
+  &lt;div&gt;さん&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+        </div>
+        <div>
+          CSS
+          <!-- 以下にCSSを書く -->
+          <pre><code>.flex7 {
+  display: flex;
+  justify-content: left;
+}
+</code></pre>
+        </div>
+      </div>
+
+      <div class="output">
+        結果
+        <output class="result">
+          <!-- 以下にHTMLを書く -->
+          <div class="flex7">
+            <div>いち</div>
+            <div>にい</div>
+            <div>さん</div>
+          </div>
+        </output>
+        <!-- 結果に対するコメント -->
+        メモ
+        <ul>
+          <li>flex アイテムが左に集まる。</li>
+          <li>justify-content: flex-start とはどう違う？</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <!-- おわり -->
+
+  <!-- はじまり -->
+  <div class="panel panel-success">
+    <div class="panel-heading">justify-content: space-between とした場合</div>
+    <div class="panel-body">
+      <div class="flex-html-css">
+        <div>
+          HTML
+          <!-- 以下にHTMLを書く -->
+          <pre><code>&lt;div class="flex8"&gt;
+  &lt;div&gt;いち&lt;/div&gt;
+  &lt;div&gt;にい&lt;/div&gt;
+  &lt;div&gt;さん&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+        </div>
+        <div>
+          CSS
+          <!-- 以下にCSSを書く -->
+          <pre><code>.flex8 {
+  display: flex;
+  justify-content: space-between;
+}
+</code></pre>
+        </div>
+      </div>
+
+      <div class="output">
+        結果
+        <output class="result">
+          <!-- 以下にHTMLを書く -->
+          <div class="flex8">
+            <div>いち</div>
+            <div>にい</div>
+            <div>さん</div>
+          </div>
+        </output>
+        <!-- 結果に対するコメント -->
+        メモ
+        <ul>
+          <li>flex アイテムが均等に配置される。</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <!-- おわり -->
+
+  <h2>align-items プロパティ</h2>
+  <ul>
+    <li>flex アイテム間の配置関係をどうするか指定する（垂直方向）。</li>
+  </ul>
+
+  <p>参考</p>
+  <ul>
+    <li><a href="https://drafts.csswg.org/css-flexbox-1/#align-items-property">CSS Flexible Box Layout Module Level 1</a></li>
+    <li><a href="https://developer.mozilla.org/ja/docs/Web/CSS/align-items">align-items - CSS | MDN</a></li>
+  </ul>
+
+  <!-- はじまり -->
+  <div class="panel panel-success">
+    <div class="panel-heading">align-items: flex-start とした場合</div>
+    <div class="panel-body">
+      <div class="flex-html-css">
+        <div>
+          HTML
+          <!-- 以下にHTMLを書く -->
+          <pre><code>&lt;div class="flex9"&gt;
+  &lt;div&gt;いち&lt;/div&gt;
+  &lt;div&gt;にい&lt;/div&gt;
+  &lt;div&gt;さん&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+        </div>
+        <div>
+          CSS
+          <!-- 以下にCSSを書く -->
+          <pre><code>.flex9 {
+  display: flex;
+  align-items: flex-start;
+}
+</code></pre>
+        </div>
+      </div>
+
+      <div class="output">
+        結果
+        <output class="result">
+          <!-- 以下にHTMLを書く -->
+          <div class="flex9">
+            <div>いち</div>
+            <div>にい</div>
+            <div>さん</div>
+          </div>
+        </output>
+        <!-- 結果に対するコメント -->
+        メモ
+        <ul>
+          <li>縦方向の開始位置が揃えられる。</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <!-- おわり -->
+
+  <!-- はじまり -->
+  <div class="panel panel-success">
+    <div class="panel-heading">align-items: center とした場合</div>
+    <div class="panel-body">
+      <div class="flex-html-css">
+        <div>
+          HTML
+          <!-- 以下にHTMLを書く -->
+          <pre><code>&lt;div class="flex10"&gt;
+  &lt;div&gt;いち&lt;/div&gt;
+  &lt;div&gt;にい&lt;/div&gt;
+  &lt;div&gt;さん&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+        </div>
+        <div>
+          CSS
+          <!-- 以下にCSSを書く -->
+          <pre><code>.flex10 {
+  display: flex;
+  align-items: center;
+}
+</code></pre>
+        </div>
+      </div>
+
+      <div class="output">
+        結果
+        <output class="result">
+          <!-- 以下にHTMLを書く -->
+          <div class="flex10">
+            <div>いち</div>
+            <div>にい</div>
+            <div>さん</div>
+          </div>
+        </output>
+        <!-- 結果に対するコメント -->
+        メモ
+        <ul>
+          <li>縦方向の中心位置が揃えられる。</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <!-- おわり -->
+
+  <h2>order プロパティ</h2>
+  <ul>
+    <li>flex アイテムの順序を指定する。</li>
+    <li>flex アイテム毎に自由に順番を指定することができる。</li>
+  </ul>
+
+  <p>参考</p>
+  <ul>
+    <li><a href="https://drafts.csswg.org/css-flexbox-1/#propdef-order">CSS Flexible Box Layout Module Level 1</a></li>
+    <li><a href="https://developer.mozilla.org/ja/docs/Web/CSS/order">order - CSS | MDN</a></li>
+  </ul>
+
+  <!-- はじまり -->
+  <div class="panel panel-success">
+    <div class="panel-heading">order で flex アイテムを逆順にした場合</div>
+    <div class="panel-body">
+      <div class="flex-html-css">
+        <div>
+          HTML
+          <!-- 以下にHTMLを書く -->
+          <pre><code>&lt;div class="flex11"&gt;
+  &lt;div&gt;いち&lt;/div&gt;
+  &lt;div&gt;にい&lt;/div&gt;
+  &lt;div&gt;さん&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+        </div>
+        <div>
+          CSS
+          <!-- 以下にCSSを書く -->
+          <pre><code>.flex11 {
+  display: flex;
+}
+.flex11 &gt; div:nth-child(1) {
+  order: 3;
+}
+.flex11 &gt; div:nth-child(2) {
+  order: 2;
+}
+.flex11 &gt; div:nth-child(3) {
+  order: 1;
+}
+</code></pre>
+        </div>
+      </div>
+
+      <div class="output">
+        結果
+        <output class="result">
+          <!-- 以下にHTMLを書く -->
+          <div class="flex11">
+            <div>いち</div>
+            <div>にい</div>
+            <div>さん</div>
+          </div>
+        </output>
+        <!-- 結果に対するコメント -->
+      </div>
+    </div>
+  </div>
+  <!-- おわり -->
+
+  <!-- はじまり -->
+  <div class="panel panel-success">
+    <div class="panel-heading">更に別の順番で並べてみる</div>
+    <div class="panel-body">
+      <div class="flex-html-css">
+        <div>
+          HTML
+          <!-- 以下にHTMLを書く -->
+          <pre><code>&lt;div class="flex12"&gt;
+  &lt;div&gt;いち&lt;/div&gt;
+  &lt;div&gt;にい&lt;/div&gt;
+  &lt;div&gt;さん&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+        </div>
+        <div>
+          CSS
+          <!-- 以下にCSSを書く -->
+          <pre><code>.flex12 {
+  display: flex;
+}
+.flex12 &gt; div:nth-child(1) {
+  order: 2;
+}
+.flex12 &gt; div:nth-child(2) {
+  order: 3;
+}
+.flex12 &gt; div:nth-child(3) {
+  order: 1;
+}
+</code></pre>
+        </div>
+      </div>
+
+      <div class="output">
+        結果
+        <output class="result">
+          <!-- 以下にHTMLを書く -->
+          <div class="flex12">
+            <div>いち</div>
+            <div>にい</div>
+            <div>さん</div>
+          </div>
+        </output>
+        <!-- 結果に対するコメント -->
+        メモ
+        <ul>
+          <li>自分で順番を指定することができる。</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <!-- おわり -->
+
+  <h2>flex-grow プロパティ</h2>
+  <ul>
+    <li>flex アイテムが flex コンテナ内のスペースをどれくらい占有するか指定する。</li>
+    <li>flex アイテムに対して指定する。</li>
+    <li>flex アイテム同士での相対的な値を指定する。</li>
+    <li>初期値は0。スペースを取らない。</li>
+    <li>全ての flex アイテムの flex-grow 合計値が 1を超えない場合は、全体のスペースを 1としてそれに対してそれぞれの割合の分だけスペースが分配される？</li>
+    <li>全ての flex アイテムの flex-grow 合計値が 1を超える場合は、それぞれの flex-grow 値の相対的な割合でスペース全体が分配される？</li>
+  </ul>
+
+  <p>参考</p>
+  <ul>
+    <li><a href="https://drafts.csswg.org/css-flexbox-1/#propdef-flex-grow">CSS Flexible Box Layout Module Level 1</a></li>
+    <li><a href="https://developer.mozilla.org/ja/docs/Web/CSS/flex-grow">flex-grow - CSS | MDN</a></li>
+  </ul>
+
+  <!-- はじまり -->
+  <div class="panel panel-success">
+    <div class="panel-heading">すべての flex アイテムで、flex-grow: 1 とした場合</div>
+    <div class="panel-body">
+      <div class="flex-html-css">
+        <div>
+          HTML
+          <!-- 以下にHTMLを書く -->
+          <pre><code>&lt;div class="flex13"&gt;
+  &lt;div&gt;いち&lt;/div&gt;
+  &lt;div&gt;にい&lt;/div&gt;
+  &lt;div&gt;さん&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+        </div>
+        <div>
+          CSS
+          <!-- 以下にCSSを書く -->
+          <pre><code>.flex13 {
+  display: flex;
+}
+.flex13 &gt; div:nth-child(1) {
+  flex-grow: 1;
+}
+.flex13 &gt; div:nth-child(2) {
+  flex-grow: 1;
+}
+.flex13 &gt; div:nth-child(3) {
+  flex-grow: 1;
+}
+</code></pre>
+        </div>
+      </div>
+
+      <div class="output">
+        結果
+        <output class="result">
+          <!-- 以下にHTMLを書く -->
+          <div class="flex13">
+            <div>いち</div>
+            <div>にい</div>
+            <div>さん</div>
+          </div>
+        </output>
+        <!-- 結果に対するコメント -->
+        メモ
+        <ul>
+          <li>すべての flex アイテムで flex-grow: 0 にするとスペースはなくなる。</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <!-- おわり -->
+
+  <!-- はじまり -->
+  <div class="panel panel-success">
+    <div class="panel-heading">flex アイテムによって、flex-grow の値を変えた場合（その1）</div>
+    <div class="panel-body">
+      <div class="flex-html-css">
+        <div>
+          HTML
+          <!-- 以下にHTMLを書く -->
+          <pre><code>&lt;div class="flex14"&gt;
+  &lt;div&gt;いち&lt;/div&gt;
+  &lt;div&gt;にい&lt;/div&gt;
+  &lt;div&gt;さん&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+        </div>
+        <div>
+          CSS
+          <!-- 以下にCSSを書く -->
+          <pre><code>.flex14 {
+  display: flex;
+}
+.flex14 &gt; div:nth-child(1) {
+  flex-grow: .1;
+}
+.flex14 &gt; div:nth-child(2) {
+  flex-grow: .2;
+}
+.flex14 &gt; div:nth-child(3) {
+  flex-grow: .3;
+}
+</code></pre>
+        </div>
+      </div>
+
+      <div class="output">
+        結果
+        <output class="result">
+          <!-- 以下にHTMLを書く -->
+          <div class="flex14">
+            <div>いち</div>
+            <div>にい</div>
+            <div>さん</div>
+          </div>
+        </output>
+        <!-- 結果に対するコメント -->
+        メモ
+        <ul>
+          <li>スペース全体を1として、それに対して、0.1 : 0.2 : 0.3 の割合になるようだ。</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <!-- おわり -->
+
+  <!-- はじまり -->
+  <div class="panel panel-success">
+    <div class="panel-heading">flex アイテムによって、flex-grow の値を変えた場合（その2）</div>
+    <div class="panel-body">
+      <div class="flex-html-css">
+        <div>
+          HTML
+          <!-- 以下にHTMLを書く -->
+          <pre><code>&lt;div class="flex15"&gt;
+  &lt;div&gt;いち&lt;/div&gt;
+  &lt;div&gt;にい&lt;/div&gt;
+  &lt;div&gt;さん&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+        </div>
+        <div>
+          CSS
+          <!-- 以下にCSSを書く -->
+          <pre><code>.flex15 {
+  display: flex;
+}
+.flex15 &gt; div:nth-child(1) {
+  flex-grow: 1;
+}
+.flex15 &gt; div:nth-child(2) {
+  flex-grow: 2;
+}
+.flex15 &gt; div:nth-child(3) {
+  flex-grow: 3;
+}
+</code></pre>
+        </div>
+      </div>
+
+      <div class="output">
+        結果
+        <output class="result">
+          <!-- 以下にHTMLを書く -->
+          <div class="flex15">
+            <div>いち</div>
+            <div>にい</div>
+            <div>さん</div>
+          </div>
+        </output>
+        <!-- 結果に対するコメント -->
+        メモ
+        <ul>
+          <li>指定した値が全て1以上の場合、スペース全体が、1:2:3 の割合で分配される。</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <!-- おわり -->
+
+  <!-- はじまり -->
+  <div class="panel panel-success">
+    <div class="panel-heading">flex アイテムによって、flex-grow の値を変えた場合（その3）</div>
+    <div class="panel-body">
+      <div class="flex-html-css">
+        <div>
+          HTML
+          <!-- 以下にHTMLを書く -->
+          <pre><code>&lt;div class="flex16"&gt;
+  &lt;div&gt;いち&lt;/div&gt;
+  &lt;div&gt;にい&lt;/div&gt;
+  &lt;div&gt;さん&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+        </div>
+        <div>
+          CSS
+          <!-- 以下にCSSを書く -->
+          <pre><code>.flex16 {
+  display: flex;
+}
+.flex16 &gt; div:nth-child(1) {
+  flex-grow: .3;
+}
+.flex16 &gt; div:nth-child(2) {
+  flex-grow: .3;
+}
+.flex16 &gt; div:nth-child(3) {
+  flex-grow: .6;
+}
+</code></pre>
+        </div>
+      </div>
+
+      <div class="output">
+        結果
+        <output class="result">
+          <!-- 以下にHTMLを書く -->
+          <div class="flex16">
+            <div>いち</div>
+            <div>にい</div>
+            <div>さん</div>
+          </div>
+        </output>
+        <!-- 結果に対するコメント -->
+      </div>
+    </div>
+  </div>
+  <!-- おわり -->
+
+  <h2>flex プロパティ</h2>
+  <ul>
+    <li>flex-grow, flex-shrink, flex-basis を同時に指定することができる。これらはどれも、flexコンテナに対して、それぞれの flex アイテムがどれだけのスペースを使うかを指定するプロパティである。</li>
+    <li>デフォルト値
+      <ul>
+        <li>flex-grow: 0 (スペースをとらない)</li>
+        <li>flex-shrink: 1 (スペースを縮小もしない)</li>
+        <li>flex-basis: auto (基本となるスペースを指定しない)</li>
+      </ul>
+    </li>
+  </ul>
+  <p>参考</p>
+  <ul>
+    <li><a href="https://drafts.csswg.org/css-flexbox-1/#propdef-flex">CSS Flexible Box Layout Module Level 1</a></li>
+    <li><a href="https://developer.mozilla.org/ja/docs/Web/CSS/flex">flex - CSS | MDN</a></li>
+  </ul>
+
+
+  <div class="well">
+    <p>ソースコードはこちら</p>
+    <ul>
+      <li><a href="https://github.com/laboradian/css-flexbox-sample001">laboradian/css-flexbox-sample001</a></li>
+    </ul>
+  </div>
+
+  <hr>
+  <footer>© 2017 <a href="http://laboradian.com/">Laboradian</a></footer>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <script src="js/main.js" charset="utf-8"></script>
+</body>
+</html>
