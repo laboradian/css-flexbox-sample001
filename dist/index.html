@@ -22,6 +22,15 @@
       <li>CSSの属性として用意されている。</li>
     </ul>
 
+    <p>Flexbox の使い方</p>
+    <ol>
+      <li>ある要素に <code>display: flex</code> を指定する（または <code>display: inline-flex</code>）。</li>
+      <li><code>flex-direction</code> プロパティで主軸を指定する。</li>
+      <li><strong>主軸方向</strong>の配置方法を <code>justify-content</code> プロパティで指定する。</li>
+      <li><strong>交差軸方向</strong>の配置方法を <code>align-content</code>, <code>align-self / align-items</code> プロパティで指定する。</li>
+      <li>etc.</li>
+    </ol>
+
     <p>参考</p>
     <ul>
       <li><a href="https://drafts.csswg.org/css-flexbox-1/">CSS Flexible Box Layout Module Level 1</a></li>
@@ -171,7 +180,8 @@
 
   <h2>flex-direction プロパティ</h2>
   <ul>
-    <li>flex-direction プロパティは、flex コンテナ内で flexアイテムをどのように配置するか指定する。</li>
+    <li>flex コンテナの主軸（main axis）や方向 (normal または reversed) を定義する。</li>
+    <li>デフォルト値は <code>row</code>。</li>
   </ul>
 
   <p>参考</p>
@@ -220,6 +230,7 @@
         メモ
         <ul>
           <li>水平方向全体が逆になる。</li>
+          <li>フレックスアイテムが逆になるが、それだけでなく右詰めになる。</li>
         </ul>
       </div>
     </div>
@@ -369,6 +380,53 @@
         メモ
         <ul>
           <li>flex アイテムが中央に集まる。</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <!-- おわり -->
+
+  <!-- はじまり -->
+  <div class="panel panel-success">
+    <div class="panel-heading">justify-content: center &amp; flex-direction: column とした場合</div>
+    <div class="panel-body">
+      <div class="flex-html-css">
+        <div>
+          HTML
+          <!-- 以下にHTMLを書く -->
+          <pre><code>&lt;div class="flex6a"&gt;
+  &lt;div&gt;いち&lt;/div&gt;
+  &lt;div&gt;にい&lt;/div&gt;
+  &lt;div&gt;さん&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+        </div>
+        <div>
+          CSS
+          <!-- 以下にCSSを書く -->
+          <pre><code>.flex6a {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+</code></pre>
+        </div>
+      </div>
+
+      <div class="output">
+        結果
+        <output class="result">
+          <!-- 以下にHTMLを書く -->
+          <div class="flex6a">
+            <div>いち</div>
+            <div>にい</div>
+            <div>さん</div>
+          </div>
+        </output>
+        <!-- 結果に対するコメント -->
+        メモ
+        <ul>
+          <li><code>flex-direction: column;</code> で主軸がブロック方向になり、その主軸に対して <code>justify-content: center;</code> が効く。つまり、縦方向に対しての <code>center</code> 位置となる。</li>
         </ul>
       </div>
     </div>
