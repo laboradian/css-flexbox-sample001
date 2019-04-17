@@ -1,7 +1,13 @@
 CSS Flexible Box Layout Module のサンプルページ001
 ================
 
-今のところ、main.js は使用していない。
+main.css ファイルの生成
+------------------------
+
+```
+$ ./node_modules/.bin/sass src/scss/main.scss ./css/main.css
+```
+
 
 2019-04
 ---------
