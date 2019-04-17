@@ -7,5 +7,5 @@ CSS Flexible Box Layout Module のサンプルページ001
 ---------
 
 - webpack, babel などは使わないように修正した。
-- それに従って、dist, src ディレクトリも撤廃した。
+- それに従って、dist ディレクトリも撤廃した。
 
