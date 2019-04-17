@@ -22,6 +22,10 @@ footer {
   }
 }
 
+.hljs-selector-pseudo {
+  color: #7D3535;
+}
+
 @mixin flex-item-bgc {
   &:nth-child(1) {
     background-color: #ffbdbd;

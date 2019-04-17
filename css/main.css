@@ -22,6 +22,10 @@ footer {
   flex-basis: 20em;
 }
 
+.hljs-selector-pseudo {
+  color: #7D3535;
+}
+
 .output {
   margin-left: 10px;
 }
