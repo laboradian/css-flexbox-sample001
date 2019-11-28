@@ -1,11 +1,21 @@
 CSS Flexible Box Layout Module のサンプルページ001
 ================
 
-main.css ファイルの生成
+Build
 ------------------------
 
+### 開発用のビルドコマンド
+
+
 ```
-$ ./node_modules/.bin/sass src/scss/main.scss ./css/main.css
+$ npm run build
+```
+
+### 本番用のビルドコマンド
+
+
+```
+$ npm run build-p
 ```
 
 

@@ -2,9 +2,11 @@
   "name": "css-flexbox-sample001",
   "version": "1.0.0",
   "description": "",
-  "main": "src/main.js",
+  "main": "index.html",
   "scripts": {
-    "test": ""
+    "test": "",
+    "build": "make",
+    "build-p": "make ENV=production clean all"
   },
   "repository": {
     "type": "git",
@@ -17,11 +19,6 @@
     "url": "https://github.com/laboradian/css-flexbox-sample001/issues"
   },
   "homepage": "https://github.com/laboradian/css-flexbox-sample001#readme",
-  "devDependencies": {
-    "eslint": "^5.16.0",
-    "sass": "^1.18.0"
-  },
-  "dependencies": {
-    "lodash": ">=4.17.13"
-  }
+  "devDependencies": {},
+  "dependencies": {}
 }
