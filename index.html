@@ -977,6 +977,57 @@
   </div>
   <!-- おわり -->
 
+  <h2>flex-wrapプロパティ</h2>
+  <ul>
+    <li>フレックスアイテムを横に並べるが、レスポンシブな動きになる。フレックスアイテムすべてが横に並ぶだけの幅がなければ、自動的に改行される。</li>
+    <li>溢れたフレックスアイテムを、上か下のどちらに積み重ねるかの指定も可能。</li>
+  </ul>
+  <p>参考</p>
+  <ul>
+    <li><a href="https://developer.mozilla.org/ja/docs/Web/CSS/flex-wrap" target="_blank" rel="noopener">flex-wrap - CSS: カスケーディングスタイルシート | MDN</a></li>
+  </ul>
+
+  <!-- はじまり -->
+  <div class="panel panel-success">
+    <div class="panel-heading">flex-wrap: wrap とした場合</div>
+    <div class="panel-body">
+      <div class="flex-html-css">
+        <div>
+          HTML
+          <!-- 以下にHTMLを書く -->
+          <pre><code>&lt;div class="flex17"&gt;
+  &lt;div&gt;いち&lt;/div&gt;
+  &lt;div&gt;にい&lt;/div&gt;
+  &lt;div&gt;さん&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+        </div>
+        <div>
+          CSS
+          <!-- 以下にCSSを書く -->
+          <pre><code>.flex17 {
+  display: flex;
+  flex-wrap: wrap;
+}
+</code></pre>
+        </div>
+      </div>
+
+      <div class="output">
+        結果
+        <output class="result">
+          <!-- 以下にHTMLを書く -->
+          <div class="flex17">
+            <div>いち</div>
+            <div>にい</div>
+            <div>さん</div>
+          </div>
+        </output>
+      </div>
+    </div>
+  </div>
+  <!-- おわり -->
+
   <h2>flex プロパティ</h2>
   <ul>
     <li>flex-grow, flex-shrink, flex-basis を同時に指定することができる。これらはどれも、flexコンテナに対して、それぞれの flex アイテムがどれだけのスペースを使うかを指定するプロパティである。</li>
@@ -994,6 +1045,8 @@
     <li><a href="https://developer.mozilla.org/ja/docs/Web/CSS/flex">flex - CSS | MDN</a></li>
   </ul>
 
+
+  <hr>
 
   <div class="well">
     <p>ソースコードはこちら</p>
